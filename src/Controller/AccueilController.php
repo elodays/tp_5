@@ -8,12 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     /**
-     * @Route("/accueil", name=app "accueil")
+     * @Route("/accueil", name="accueil", methode={"GET"})
      */
-   public function index()
+   public function index() //methode index
     {
-        return $this->render('accueil/index.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
+        return $this->render('accueil/index.html.twig'); //chemin de la vue
+            
     }
-}
+ }
