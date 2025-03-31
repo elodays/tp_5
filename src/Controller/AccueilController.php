@@ -8,11 +8,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     /**
-     * @Route("/accueil", name="accueil", methode={"GET"})
+     * @Route("/accueil", name="accueil", methods={"GET"})
      */
    public function index() //methode index
     {
-        return $this->render('accueil/index.html.twig'); //chemin de la vue
+        $nom = ["jean", "paul", "marie"];
+        $prenom = ["dupont", "durand", "martin"];
+        $age = [25, 30, 35];
+        return $this->render('accueil/index.html.twig',[
+            'lesNoms' => $nom,
+            'lesPrenoms' => $prenom,
+            'lesAges' => $age,
+        ]); //chemin de la vue
             
     }
  }

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste Dec Contact{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-2">Liste des Contact</h1>
+
+<div class="row"style="margin-top: 20px; width:auto ;nb-3;margin-left:5% ; margin-right:5%;">
+{% for leContact in lesContacts %}
+  <div class="col-sm-3">
+    <h3 class "card-header">{{leContact.nom}} {{leContact.prenon}} </h3>
+      <img style="width: 100px; height: 100px; display: block;" src="{{leContact.avatar}}"  alt="...">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ leContact.nom }}</li>
+        <li class="list-group-item"> {{ leContact.prenon }}</li>
+        <li class="list-group-item">{{ leContact.ville }}</li>
+        <li class="list-group-item">{{ leContact.mail }}</li>
+        {% if leContact.sexe ==0 %}
+         <span class="badge bg-primary">Homme</span>
+         {% else %}
+         <span class="badge bg-danger">Femme</span> 
+         {% endif %}
+        </ul>
+        <div class="card-body">
+         <center><a href="#" class="btn btn-info">Voir le profil</a></center>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

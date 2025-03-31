@@ -5,6 +5,23 @@
 {% block body %} 
 
 <h1 class="pt-5">Bienvenue sur mon application</h1> 
+<p class="text-center">Voici la liste des noms prenom age :</p>
+ <table class="table table-striped">
+    {% for leNom in lesNoms %}
+        <td> {{leNom}} </td>
+    {% endfor %}
+ <tr>
+        {% for lePrenom in lesPrenoms %}
+        <td> {{lePrenom}} </td>
+    {% endfor %}
+</tr>
+<tr>
+         {% for leAge in lesAges %}
+            <td> {{leAge}} 
+</td>
+    {% endfor %}
+    </tr>
+    </table>
 
 <style>
 h1 {
