@@ -3,22 +3,31 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Repository\ContactRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact", name="Contact" , methods={"GET"})
      */
-    public function listeContact()
+    public function listeContact(ContactRepository $repo)
     {
-        $manager=$this->getDoctrine()->getManager();
-        $repo=$manager->getRepository(Contact::class);
-        $Contacts=$repo->findAll();
-//dd($Contacts);
-        return $this->render('contact/listeContact.html.twig',[
-            'lesContacts' => $Contacts
+        $contacts=$repo->finAll();
+        return $this->render('Contact/listeContacts.html.twig',[
+            'lesContacts' => $contacts
+        ]);
+    }
+    
+    /**
+     * @Route("/contact/{id}", name="ficheContact" , methods={"GET"})
+     */
+    public function ficheContact($id, ContactRepository $repo)
+    {
+        $Contact=$repo->find($id);
+        return $this->render('contact/ficheContact.html.twig',[
+            'leContact' => $Contact
         ]);
     }
 }

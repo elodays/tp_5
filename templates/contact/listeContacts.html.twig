@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Contacts{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-2">Liste des Contacts</h1>
+
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    {% for leContact in lesContacts %}
+      <div class="col-md-3 col-lg-3 mb-5 d-flex justify-content-center">
+        <div class="card text-center">
+          <h3 class="card-header">{{ leContact.nom }} {{ leContact.prenon }}</h3>
+          <img style="width: 250px; height: 200px; margin: auto;" src="{{ leContact.avatar }}" alt="Avatar">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ leContact.nom }}</li>
+            <li class="list-group-item">{{ leContact.prenon }}</li>
+            <li class="list-group-item">{{ leContact.ville }}</li>
+            <li class="list-group-item">{{ leContact.mail }}</li>
+            <li class="list-group-item">
+              {% if leContact.sexe == 0 %}
+                <span class="badge bg-primary">Homme</span>
+              {% else %}
+                <span class="badge bg-danger">Femme</span>
+              {% endif %}
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="btn btn-info">Voir le profil</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+<style>
+body{
+  background-color: rgb(22, 150, 255);
+}
+  .card-header {
+    background-color:rgb(4, 0, 214);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0px;
+    font-family: Roboto Mono ;
+    border-radius: 1px;
+    padding: 10px;
+    border: 5px solid rgb(0, 24, 59);
+  }
+  .card-header:hover {
+    color: rgb(123, 218, 255);
+    text-decoration: none;
+  }
+  .list-group-item {
+    font-size: 18px;
+    background-color:rgb(114, 182, 250);
+  }
+ img {
+  border : 10px solid rgb(2, 1, 63);
+ }
+
+ .card{
+  background-color: rgb(2, 37, 112);
+  border-radius: 10px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);}
+  .text-center{ 
+  color: black;
+  text -decoration: none;
+  font-size: 50px;
+  font-family: "Liste des Contacts", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  }
+  .text-center:hover{
+  color: rgb(0, 11, 77);
+  text-decoration: none;
+  cursor: crosshair;
+
+  }
+</style>
+{% endblock %}
