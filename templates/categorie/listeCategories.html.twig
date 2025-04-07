@@ -3,28 +3,14 @@
 {% block title %}Liste des Contacts{% endblock %}
 
 {% block body %}
-<h1 class="text-center pt-2">Liste des Contacts</h1>
-
-<div class="container pt-4">
+<h1 class="text-center pt-2">Liste des Categories</h1>
   <div class="row justify-content-center">
-    {% for leContact in lesContacts %}
-      <div class="col-md-3 col-lg-3 mb-5 d-flex justify-content-center">
-        <div class="card text-center">
-          <h3 class="card-header">{{ leContact.nom }} {{ leContact.prenon }}</h3>
-          <img style="width: 250px; height: 200px; margin: auto;" src="{{ leContact.avatar }}" alt="Avatar">
+    {% for leCategorie in lesCategories %}
+      <div class="col-md-12 col-md-12 col-lg-4 col-xl-3 d-flex justify-content-center">
+       <h4 class="card-header">{{ laCategorie.libelle }} </h4>
+          <img style="width: 250px; height: 200px; margin: auto;" src="{{ laCategorie.image }}" alt="Avatar">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ leContact.nom }}</li>
-            <li class="list-group-item">{{ leContact.prenon }}</li>
-            <li class="list-group-item">{{ leContact.ville }}</li>
-            <li class="list-group-item">{{ leContact.mail }}</li>
-            <li class="list-group-item">
-              {% if leContact.sexe == 0 %}
-                <span class="badge bg-primary">Homme</span>
-              {% else %}
-                <span class="badge bg-danger">Femme</span>
-              {% endif %}
-            </li>
-          </ul>
+            <li class="list-group-item">{{ leCategorie.description }}</li>
           <div class="card-body">
             <a href="{{path('ficheContact' ,{'id': leContact.id})}}" class="btn btn-info">Voir le profil</a>
           </div>

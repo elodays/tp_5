@@ -10,13 +10,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/contact", name="Contact" , methods={"GET"})
+     * @Route("/contacts", name="contact" , methods={"GET"})
      */
     public function listeContact(ContactRepository $repo)
     {
-        $contacts=$repo->finAll();
-        return $this->render('Contact/listeContacts.html.twig',[
-            'lesContacts' => $contacts
+        $manager = $this->getDoctrine()->getManager();
+        $repo = $manager->getRepository(Contact::class);
+        $contacts=$repo->findAll();
+        return $this->render('contact/listeContacts.html.twig',[
+            'lesContacts' => $contacts //url pour les contacts
         ]);
     }
     
@@ -27,7 +29,7 @@ class ContactController extends AbstractController
     {
         $Contact=$repo->find($id);
         return $this->render('contact/ficheContact.html.twig',[
-            'leContact' => $Contact
+            'leContact' => $Contact 
         ]);
     }
 }
