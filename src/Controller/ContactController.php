@@ -17,6 +17,9 @@ class ContactController extends AbstractController
         $manager = $this->getDoctrine()->getManager();
         $repo = $manager->getRepository(Contact::class);
         $contacts=$repo->findAll();
+        //dump($contacts); profialeur de debugage
+        //dump($contacts); pour voir se qui se passe dans le debugage
+        //dd($contacts) //pour voir se qui y a sans sa s'arrete
         return $this->render('contact/listeContacts.html.twig',[
             'lesContacts' => $contacts //url pour les contacts
         ]);

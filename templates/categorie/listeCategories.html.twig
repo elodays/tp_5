@@ -1,32 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste des Contacts{% endblock %}
+{% block title %}Liste des Categories{% endblock %}
 
 {% block body %}
 <h1 class="text-center pt-2">Liste des Categories</h1>
-  <div class="row justify-content-center">
-    {% for leCategorie in lesCategories %}
-      <div class="col-md-12 col-md-12 col-lg-4 col-xl-3 d-flex justify-content-center">
-       <h4 class="card-header">{{ laCategorie.libelle }} </h4>
+  <div class="row ">
+    {% for laCategorie in lesCategories %}
+      <div class="bon">
+       <h4 class="card-header">{{laCategorie.libelle}} </h4>
           <img style="width: 250px; height: 200px; margin: auto;" src="{{ laCategorie.image }}" alt="Avatar">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ leCategorie.description }}</li>
+            <li class="list-group-item">{{ laCategorie.description }}</li>
           <div class="card-body">
-            <a href="{{path('ficheContact' ,{'id': leContact.id})}}" class="btn btn-info">Voir le profil</a>
+            <a href="{{path('ficheContact' ,{'id': laCategorie.id})}}" class="btn btn-info">Voir le profil</a>
           </div>
         </div>
       </div>
     {% endfor %}
   </div>
-<style>
+ <style>
 body{
   background-color: rgb(0, 0, 0);
 }
-  .card-header {
+   .card-header {
     background-color:rgb(7, 7, 7);
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
+    
     margin-top: 0px;
     font-family: Roboto Mono ;
     border-radius: 1px;
@@ -67,7 +68,10 @@ body{
  .card{
   background-color: rgb(126, 0, 0);
   border-radius: 10px;
-  box-shadow: 1px 5px 5px 1px rgba(173, 6, 6, 0.86);}
+  box-shadow: 1px 5px 5px 1px rgba(173, 6, 6, 0.86);
+
+  }
+
   .text-center{ 
   color: black;
   text -decoration: none;
@@ -83,6 +87,33 @@ body{
   text-decoration: none;
   cursor: crosshair;
 
+  }
+  .card-body {
+      padding: 20px;
+      background-color:rgb(151, 0, 0);
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      text-align: center;
+      border: 1px solid #ccc;
+  }
+  .bon {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: block;
+      width: 500px;
+      display: inline-block;
+      
+  }
+  
+  .bon p {
+      font-size: 14px;
+      color: #333;
   }
 </style>
 {% endblock %}
