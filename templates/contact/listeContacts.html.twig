@@ -24,9 +24,12 @@
                 <span class="badge bg-danger">Femme</span>
               {% endif %}
             </li>
+            <li class="list-group-item"> <a href="{{path('ficheCategorie' , {'id': leContact.categorie.id})}}"></a>
+            {{ leContact.categorie.libelle}}</li>
           </ul>
           <div class="card-body">
             <a href="{{path('ficheContact' ,{'id': leContact.id})}}" class="btn btn-info">Voir le profil</a>
+          
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategorieController extends AbstractController
 {
     /**
-     * @Route("/categories", name="categories", methods={"GET"})
+     * @Route("/categories", name="Categories", methods={"GET"})
      */
 
     public function listeCategories(CategorieRepository $repo)
@@ -21,6 +21,18 @@ class CategorieController extends AbstractController
         //dump($contacts); pour voir se qui se passe dans le debugage
         return $this->render('categorie/listeCategories.html.twig', [
             'lesCategories' => $Categories
+        ]);
+    }
+
+
+    /**
+     * @Route("/fichecategorie", name="ficheCategorie", methods={"GET"})
+     */
+public function ficheCategorie(Categorie $categorie)
+    {
+     return $this->render('categorie/ficheCategorie.html.twig',[
+            'laCategorie' => $categorie //url pour les contacts
+     
         ]);
     }
 }

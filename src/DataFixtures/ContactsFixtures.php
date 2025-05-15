@@ -13,25 +13,25 @@ class ContactsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');      
-
+$categorie=[];
         $categorie = new Categorie();
         $categorie->setLibelle("professionnel")
             ->setDescription($faker->sentence(50))
-            ->setImage("https://picsum.photos/400/200?category=professionnel");
+            ->setImage("images/categories/professionnel.jpg");
         $manager->persist($categorie);
-
+$categorie[]=$categorie;
         $categorie = new Categorie();
         $categorie->setLibelle("people")
             ->setDescription($faker->sentence(50))
-            ->setImage("https://picsum.photos/400/200?category=people");
+            ->setImage("images/categories/people.jpg");
         $manager->persist($categorie);
-
+$categorie[]=$categorie;
         $categorie = new Categorie();
         $categorie->setLibelle("sport")
             ->setDescription($faker->sentence(50))
-            ->setImage("https://picsum.photos/400/200?category=people");
+            ->setImage("images/categories/sport.jpg");
         $manager->persist($categorie);
-
+$categorie[]=$categorie;
         $genres = ['men', 'women'];
 
         for ($i = 0; $i < 10; $i++) {
@@ -46,6 +46,7 @@ class ContactsFixtures extends Fixture
                 ->setVille($faker->city()) // Correction ici : $faker au lieu de $fake
                 ->setMail($faker->email()) // Correction ici : $faker au lieu de $fake
                 ->setSexe($sexe)
+                ->setCategorie($categorie[mt_rand(0,2)])
                 ->setAvatar("https://randomuser.me/api/portraits/" . $type . "/" . $i . ".jpg");
             $manager->persist($contact);
         }

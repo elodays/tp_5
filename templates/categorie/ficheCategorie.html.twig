@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Categorie{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-2">Fiche Categorie</h1>
+<div class="row">
+<div class="card mb-3 container">
+<h4 clas="card-header"> {{laCategorie.libelle}}</h4>
+<div class="row">
+<div class="col-2 d-fle align-items-center">
+          <img style="width: 250px; height: 200px; margin: auto;" src="{{ laCategorie.image }}" alt="image"> </div>
+          <div class="col">
+          <ul class="list-group list-group-flush"> <hr>
+            <li class="list-group-item">{{ laCategorie.description }}</li> <hr>   
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="{{path('Categories')}}" class="btn btn-warning">retour list</a>
+          </div>
+        </div>
+      </div>
+<style>
+body{
+  background-color: rgb(0, 0, 0);
+}
+  .card-header {
+    width: 100%;
+    background-color:rgb(0, 0, 0);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0px;
+    font-family: Roboto Mono ;
+    border-radius: 1px;
+    padding: 30px;
+    border: 5px solid rgb(107, 0, 0);
+  }
+  .card-header:hover {
+    color: rgb(97, 3, 3);
+    text-decoration: none;
+  }
+  .list-group-item {
+    font-size: 18px;
+    background-color:rgb(12, 6, 6);
+  }
+ img {
+  border : 10px solid rgb(0, 0, 0);
+ }
+
+ .card{
+  background-color: rgb(112, 0, 0);
+  border-radius: 10px;
+  box-shadow: 10px 20px 10px rgba(0, 0, 0, 0.1);
+  
+  }
+   @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .text-center{ 
+  color: white;
+  text -decoration: none;
+  font-size: 50px;
+  font-family: "Liste des Contacts", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  }
+  .text-center:hover{
+  color: rgb(95, 0, 0);
+  text-decoration: none;
+  cursor: crosshair;
+
+  }
+</style>
+{% endblock %}
