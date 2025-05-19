@@ -13,25 +13,25 @@ class ContactsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');      
-$categorie=[];
+$categories=[];
         $categorie = new Categorie();
         $categorie->setLibelle("professionnel")
             ->setDescription($faker->sentence(50))
             ->setImage("images/categories/professionnel.jpg");
         $manager->persist($categorie);
-$categorie[]=$categorie;
+$categories[]=$categorie;
         $categorie = new Categorie();
         $categorie->setLibelle("people")
             ->setDescription($faker->sentence(50))
             ->setImage("images/categories/people.jpg");
         $manager->persist($categorie);
-$categorie[]=$categorie;
+$categories[]=$categorie;
         $categorie = new Categorie();
         $categorie->setLibelle("sport")
             ->setDescription($faker->sentence(50))
             ->setImage("images/categories/sport.jpg");
         $manager->persist($categorie);
-$categorie[]=$categorie;
+$categories[]=$categorie;
         $genres = ['men', 'women'];
 
         for ($i = 0; $i < 10; $i++) {
@@ -46,7 +46,7 @@ $categorie[]=$categorie;
                 ->setVille($faker->city()) // Correction ici : $faker au lieu de $fake
                 ->setMail($faker->email()) // Correction ici : $faker au lieu de $fake
                 ->setSexe($sexe)
-                ->setCategorie($categorie[mt_rand(0,2)])
+                ->setCategorie($categories[mt_rand(0,2)])
                 ->setAvatar("https://randomuser.me/api/portraits/" . $type . "/" . $i . ".jpg");
             $manager->persist($contact);
         }

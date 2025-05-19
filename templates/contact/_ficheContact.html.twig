@@ -1,0 +1,100 @@
+<div class="container pt-4">
+  <div class="row justify-content-center">
+    {% for leContact in lesContacts %}
+      <div class="col-md-3 col-lg-3 mb-5 d-flex justify-content-center">
+        <div class="card text-center">
+          <h3 class="card-header">
+          {{ leContact.nom }} {{ leContact.prenon }}</h3>
+          <img style="width: 250px; height: 200px; margin: auto;" src="{{ leContact.avatar }}" alt="Avatar">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ leContact.nom }}</li>
+            <li class="list-group-item">{{ leContact.prenon }}</li>
+            <li class="list-group-item">{{ leContact.ville }}</li>
+            <li class="list-group-item">{{ leContact.mail }}</li>
+            <li class="list-group-item">
+              {% if leContact.sexe == 0 %}
+                <span class="badge bg-primary">Homme</span>
+              {% else %}
+                <span class="badge bg-danger">Femme</span>
+              {% endif %}
+            </li>
+            {% if mode == 'listeContacts' %}
+            <li class="list-group-item"> 
+            <a href="{{path('ficheCategorie' , {'id': leContact.categorie.id})}}">{{ leContact.categorie.libelle}}</a></li>
+          {% endif %} 
+           </ul>
+          <div class="card-body">
+            <a href="{{path('ficheContact' ,{'id': leContact.id})}}" class="btn btn-info">Voir le profil</a>
+       
+        </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+<style>
+body{
+  background-color: rgb(0, 0, 0);
+}
+  .card-header {
+    background-color:rgb(7, 7, 7);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 0px;
+    font-family: Roboto Mono ;
+    border-radius: 1px;
+    padding: 10px;
+    border: 5px solid rgb(49, 49, 49);
+  }
+  .card-header:hover {
+    color: rgb(180, 6, 6);
+    text-decoration: none;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .card {
+    animation: fadeIn 1s ease-in-out;
+  }
+  .card-header {
+    animation: fadeIn 1s ease-in-out;
+  }
+  .card-body {
+    animation: fadeIn 1s ease-in-out;
+  }
+  .list-group-item {
+    font-size: 18px;
+    background-color:rgb(0, 0, 0);
+  }
+ img {
+  border : 10px solid rgb(0, 0, 0);
+ }
+
+ .card{
+  background-color: rgb(126, 0, 0);
+  border-radius: 10px;
+  box-shadow: 1px 5px 5px 1px rgba(173, 6, 6, 0.86);}
+  .text-center{ 
+  color: black;
+  text -decoration: none;
+  font-size: 50px;
+  font-family: "Liste des Contacts", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  color: rgb(146, 0, 0);
+  }
+  .text-center:hover{
+  color: rgb(248, 248, 248);
+  text-decoration: none;
+  cursor: crosshair;
+
+  }
+</style>

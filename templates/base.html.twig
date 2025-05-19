@@ -17,21 +17,30 @@
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarColor02">
-					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('contact')}}">Liste des contacts
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="collapse navbar-collapse" id="navbarColor02">
-					<ul class="navbar-nav me-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{{path('Categories')}}">Liste des Categories
-							</a>
-						</li>
-					</ul>
+
+
+
+
+
+
+
+
+
+
+ <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{{path('contact')}}">Liste des contact</a>
+          <a class="dropdown-item" href="#">Liste des hommes</a>
+          <a class="dropdown-item" href="#">Liste des femmes</a>
+          <div class="dropdown-divider"></div>
+        </div>
+        </li>
+			<li class="nav-item">
+			<a class="nav-link" href="{{path('Categories')}}">Liste des Categories
+			</a>
+			</li>
+			</ul>
 				</div>
 			</div>
 		</nav>
