@@ -38,7 +38,7 @@ class ContactController extends AbstractController
       /**
      * @Route("/contact/sexe/{sexe}", name="listeContactsSexe" , methods={"GET"})
      */
-    public function listeContactsSexe($sexe , contactRepeository $repo)
+    public function listeContactsSexe($sexe , contactRepository $repo)
     {
       
         $Contact=$repo->findBy(
